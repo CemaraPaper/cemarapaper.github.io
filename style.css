@@ -1017,3 +1017,24 @@ input:checked + .slider::before {
     text-align: center;
     margin-top: 2rem;
 }
+
+/* --- Perbaikan Dark Mode Halaman Kontak --- */
+
+/* 1. Membuat background kotak kontak dinamis */
+.contact-wrapper {
+  background: var(--bg-light); /* Ganti dari 'white' ke variabel */
+}
+
+/* 2. Aturan warna teks khusus saat dark mode aktif */
+body[data-theme='dark'] .contact-info h3 {
+    color: var(--text-dark);
+}
+
+body[data-theme='dark'] .contact-item strong {
+    color: var(--text-dark);
+}
+
+body[data-theme='dark'] .contact-context {
+    color: var(--text-dark);
+    opacity: 0.8;
+}
