@@ -207,3 +207,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// --- Kode untuk Load More Acara di Galeri (Versi Simpel & Cepat) ---
+document.addEventListener('DOMContentLoaded', function() {
+    const eventsContainer = document.getElementById('workshop-events-grid');
+    const loadMoreBtn = document.getElementById('load-more-events');
+    
+    if (eventsContainer && loadMoreBtn) {
+        const events = Array.from(eventsContainer.querySelectorAll('.gallery-event'));
+        const itemsToShowInitially = 3;
+        let currentlyShown = itemsToShowInitially;
+
+        // Sembunyikan acara yang berlebih di awal
+        events.slice(itemsToShowInitially).forEach(event => {
+            event.style.display = 'none';
+        });
+
+        if (events.length <= itemsToShowInitially) {
+            loadMoreBtn.style.display = 'none';
+            return;
+        }
+
+        // Fungsi saat tombol diklik
+        loadMoreBtn.addEventListener('click', function() {
+            const nextItems = events.slice(currentlyShown, currentlyShown + itemsToShowInitially);
+            
+            nextItems.forEach(event => {
+                event.style.display = 'block';
+            });
+
+            currentlyShown += itemsToShowInitially;
+
+            // Sembunyikan tombol jika sudah tidak ada lagi item tersembunyi
+            if (currentlyShown >= events.length) {
+                loadMoreBtn.style.display = 'none';
+            }
+        });
+    }
+});
