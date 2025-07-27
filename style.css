@@ -1,0 +1,1019 @@
+/* css/style.css - VERSI DISEMPURNAKAN */
+
+/* --- Import Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@500;600;700&display=swap');
+
+/* --- Variabel CSS --- */
+:root {
+    --primary-color: #233D77; /* Sustain Blue */
+    --secondary-color: #4CC065; /* Eco Green */
+    --accent-color-1: #7BDB89; /* Nature Glow */
+    --accent-color-2: #E2F3C4; /* Recycla Light */
+    --text-dark: #333;
+    --text-light: #ffffff;
+    --bg-light: #fdfdfd;
+    --bg-accent: #f4f8e9; /* Menggunakan variasi dari Recycla Light */
+
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.06);
+    --shadow-strong: 0 6px 20px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    --header-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* --- Definisi Warna Dark Mode --- */
+body[data-theme='dark'] {
+    --primary-color: #5c7fe6; /* Biru lebih terang */
+    --secondary-color: #4CC065; /* Hijau tetap */
+    --accent-color-1: #7BDB89;
+    --accent-color-2: #2c3a47; /* Abu-abu gelap */
+    --text-dark: #e0e0e0; /* Teks jadi terang */
+    --text-light: #121212; /* Teks di atas tombol jadi gelap */
+    --bg-light: #121212; /* Background utama jadi hitam/abu gelap */
+    --bg-accent: #1e272e; /* Background seksi jadi abu sedikit lebih terang */
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --shadow-strong: 0 6px 20px rgba(0, 0, 0, 0.3);
+    --header-bg: rgba(30, 39, 46, 0.85);
+}
+
+/* Ganti ikon saat dark mode aktif */
+body[data-theme='dark'] #theme-toggle i::before {
+    content: '\f185'; /* Ikon matahari (sun) */
+}
+
+/* --- Reset & Gaya Dasar --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.7;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); line-height: 1.2; font-weight: 700;}
+h2 { font-size: clamp(2.2rem, 5vw, 2.8rem); margin-bottom: 2rem; text-align: center; }
+h3 { font-size: 1.6rem; margin-bottom: 1rem; font-weight: 600; }
+
+p {
+    font-size: 1.05rem; /* Sedikit lebih besar dari default */
+    line-height: 1.8; /* Beri jarak antar baris agar lebih lega */
+     margin-bottom: 1rem;
+     max-width: 65ch;
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color-1);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius);
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--secondary-color);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* --- Header & Navigasi --- */
+.header {
+    background: var(--header-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    transition: box-shadow 0.3s ease;
+}
+
+.header.scrolled {
+  box-shadow: var(--shadow-light);
+}
+
+/* --- Style untuk Logo di Header --- */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Jarak antara logo dan tulisan */
+}
+
+.logo img {
+    height: 40px; /* Sesuaikan tinggi logo jika perlu */
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style untuk pembungkus bagian kanan header */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+/* --- Style Baru untuk Link Navigasi --- */
+.nav-links a {
+    position: relative; /* Wajib untuk posisi highlight */
+    color: var(--primary-color);
+    font-weight: 600; /* Sedikit lebih tebal */
+    text-decoration: none;
+    padding: 8px 16px; /* Beri ruang untuk highlight */
+    border-radius: 50px; /* Samakan dengan radius tombol */
+    transition: color 0.3s ease;
+    z-index: 1; /* Pastikan teks di atas highlight */
+}
+
+/* Highlight-nya dibuat dengan pseudo-element ::before */
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent-color-2); /* Warna hijau sangat muda */
+    border-radius: 50px;
+    transform: scaleX(0); /* Sembunyi dengan skala 0 */
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: -1; /* Posisikan di belakang teks */
+}
+
+/* Efek saat di-hover atau saat halaman aktif */
+.nav-links a:hover, .nav-links a.active-page {
+    color: var(--primary-color);
+}
+
+.nav-links a:hover::before, .nav-links a.active-page::before {
+    transform: scaleX(1); /* Tampilkan highlight dengan animasi membesar */
+}
+
+.menu-toggle { display: none; } /* Akan diatur di media query */
+
+
+/* --- Tombol (Button) --- */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 50px; /* Tombol lebih modern */
+    font-weight: 700;
+    font-family: var(--font-heading);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-light);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--text-light);
+}
+.btn-primary:hover {
+    background: #1c3263;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-strong);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    border: 2px solid transparent; /* Siapkan border transparan */
+}
+.btn-secondary:hover {
+    background-color: transparent; /* Background jadi transparan */
+    color: var(--secondary-color); /* Teks jadi warna hijau */
+    border: 2px solid var(--secondary-color); /* Border hijau muncul */
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-strong);
+}
+
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(rgba(35, 61, 119, 0.8), rgba(35, 61, 119, 0.6)), url('../images/hero_background.jpg') no-repeat center center/cover;
+    color: var(--text-light);
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 5%;
+}
+
+.hero h1 {
+    color: var(--text-light);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+    max-width: 60ch;
+    color: rgba(255, 255, 255, 0.9);
+    /* Tambahkan 2 baris ini */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons .btn {
+    margin: 0.5rem;
+}
+
+.hero-content {
+  position: relative; /* Wajib ada */
+  z-index: 2; /* Mengangkat konten di atas overlay */
+}
+
+/* --- Animasi Teks Masuk --- */
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Terapkan animasi ke judul & paragraf di hero section */
+.hero-content h1 {
+  animation: slideUpFadeIn 0.8s ease-out forwards;
+}
+
+.hero-content p {
+  opacity: 0; /* Mulai dari transparan */
+  animation: slideUpFadeIn 0.8s ease-out 0.3s forwards; /* Delay 0.3 detik */
+}
+
+/* --- Kartu (Produk, Jasa) --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--bg-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-strong);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.card:hover img {
+    transform: scale(1.05); /* Sedikit zoom saat card di-hover */
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-content h3 { color: var(--primary-color); }
+.card-content p { 
+  font-size: 0.95rem; 
+  text-align: justify;
+}
+
+
+/* --- Latar Belakang Aksen --- */
+.bg-accent-section {
+  background-color: var(--bg-accent);
+}
+
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--primary-color);
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 3rem 0;
+    margin-top: 0;
+}
+
+.footer .social-links {
+    margin-bottom: 1.5rem;
+}
+
+.footer .social-links a {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    transition: transform 0.3s ease;
+}
+
+.footer .social-links a:hover {
+    color: var(--accent-color-1);
+    transform: scale(1.2);
+}
+
+
+/* --- Style untuk Footer (Layout 3 Kolom Final) --- */
+
+.footer .container {
+  display: flex;
+  justify-content: space-between; /* Mendorong Kiri, Tengah, Kanan ke posisinya */
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Kolom Kiri, Tengah, dan Kanan */
+.footer-left, .footer-right {
+  flex: 1; /* Memberi ruang yang sama untuk kolom kiri dan kanan */
+}
+.footer-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-left {
+    display: flex;
+    justify-content: flex-start; /* Merapatkan toggle ke kiri */
+}
+
+.footer-right {
+    display: flex;
+    justify-content: flex-end; /* Merapatkan item (kosong) ke kanan */
+}
+
+.footer-center p {
+    margin: 0;
+}
+
+
+/* -- Sisa kode untuk saklar (biarkan sama) -- */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.theme-status-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+body[data-theme='dark'] .theme-status-text { color: rgba(255, 255, 255, 0.8); }
+.theme-switch { position: relative; display: inline-block; width: 50px; height: 25px; }
+.theme-switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; }
+.slider::before { position: absolute; content: ""; height: 19px; width: 19px; left: 3px; bottom: 3px; background-color: white; transition: .4s; }
+input:checked + .slider { background-color: var(--secondary-color); }
+input:checked + .slider::before { transform: translateX(25px); }
+.slider.round { border-radius: 25px; }
+.slider.round::before { border-radius: 50%; }
+
+
+/* Aturan untuk Mobile: membuat semuanya kembali ke tengah */
+@media (max-width: 768px) {
+    .footer .container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .footer-center {
+        order: 1; /* Konten tengah jadi paling atas */
+    }
+    .footer-left {
+        order: 2; /* Toggle jadi di bawahnya */
+    }
+    .footer-right {
+        display: none; /* Sembunyikan kolom kanan di mobile */
+    }
+}
+
+/* --- Media Queries (Responsif untuk Mobile) --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-light);
+        box-shadow: var(--shadow-strong);
+        padding: 1rem 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: var(--primary-color);
+    }
+}
+/* Tambahkan ini di css/style.css */
+.gallery-page-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+/* --- Style untuk Halaman Galeri (VERSI BARU) --- */
+
+.gallery-category {
+  margin-bottom: 4rem; /* Jarak antar kategori */
+}
+
+.gallery-category h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.gallery-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Ini adalah bingkai untuk setiap gambar */
+.gallery-frame {
+  border-radius: var(--border-radius);
+  overflow: hidden; /* Sembunyikan gambar yang keluar dari bingkai */
+  box-shadow: var(--shadow-light);
+  aspect-ratio: 4 / 3; /* PAKSA BENTUK JADI PERSEGI PANJANG 4:3 */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-frame:hover {
+  transform: scale(1.03);
+}
+
+.gallery-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Gambar akan mengisi bingkai tanpa gepeng */
+}
+/* Anda bisa lanjutkan polanya jika gambarnya lebih banyak */
+
+.gallery-page-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-page-grid img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* --- Style untuk Sub-Seksi Galeri --- */
+
+.gallery-event {
+  margin-top: 2.5rem; /* Jarak antar acara */
+  padding-top: 2.5rem; /* Jarak dari garis pemisah ke sub-judul */
+  border-top: 2px solid var(--accent-color-2); /* Garis pemisah antar acara */
+}
+
+.gallery-event h4 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color); /* Warna hijau agar menonjol */
+  margin-bottom: 1.5rem;
+}
+
+/* --- Style untuk Efek Overlay Gambar Galeri --- */
+
+.gallery-frame {
+  position: relative; /* Wajib ada untuk posisi overlay */
+  /* ...properti lainnya... */
+}
+
+/* Lapisan overlay-nya */
+.gallery-frame::after {
+  content: '\f06e';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(35, 61, 119, 0.7);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* <-- TAMBAHKAN BARIS INI */
+}
+
+/* Tampilkan overlay saat di-hover */
+.gallery-frame:hover::after {
+  opacity: 1;
+}
+
+/* Style untuk nama lokasi di galeri */
+.event-location {
+  color: var(--secondary-color); /* Menggunakan warna biru utama Anda */
+}
+
+/* --- Animasi Fade-in on Scroll --- */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(30px); /* Mulai dari posisi 30px lebih rendah */
+  transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Style untuk Lightbox Galeri --- */
+
+/* Latar belakang overlay */
+.lightbox {
+  display: none; /* Sembunyi secara default */
+  position: fixed; /* Tetap di posisi yang sama bahkan saat di-scroll */
+  z-index: 2000; /* Pastikan berada di lapisan paling atas */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  /* Pakai flexbox untuk memusatkan gambar */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Gambar di dalam lightbox */
+.lightbox-content {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: var(--border-radius);
+  /* Animasi saat muncul */
+  animation: zoomIn 0.4s ease-out;
+}
+
+/* Definisi animasi zoomIn */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Tombol Tutup (X) */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #bbb;
+}
+
+/* Beri tanda bahwa gambar di galeri bisa diklik */
+.gallery-page-grid img {
+    cursor: pointer;
+}
+
+/* --- Style untuk Tombol Scroll to Top --- */
+#scrollTopBtn {
+  display: none; /* Sembunyi secara default */
+  position: fixed; /* Tetap di layar saat scroll */
+  bottom: 30px;
+  right: 30px;
+  z-index: 1500; /* Posisinya di atas konten lain */
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%; /* Membuatnya bulat */
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  /* Pakai flexbox untuk memusatkan ikon panah */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#scrollTopBtn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-5px); /* Sedikit naik saat di-hover */
+}
+
+/* --- Style untuk Layout Halaman Jasa (VERSI FINAL PASTI BENAR) --- */
+
+.service-layout {
+  /* Default untuk mobile: tumpukan vertikal */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.service-text, .service-image {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* ↓↓↓ INI BAGIAN PALING PENTING UNTUK LAYAR LEBAR ↓↓↓ */
+@media (min-width: 768px) {
+  .service-layout {
+    flex-direction: row; /* Layout menjadi baris (kiri-kanan) */
+    gap: 3rem;
+    text-align: left;
+    align-items: center;
+  }
+
+  .service-text {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .service-image {
+    width: 45%;
+  }
+
+  /* Aturan untuk membalik urutan (gambar di kiri, teks di kanan) */
+  .service-layout.reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+/* Kode untuk frame gambar (biarkan seperti ini) */
+.service-image-frame {
+  height: 350px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+}
+
+.service-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Style untuk Layout Halaman Kontak Baru --- */
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr; /* Default 1 kolom untuk mobile */
+    gap: 2rem;
+    background: white; /* Memberi kontras dari background utama */
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+/* Layout 2 kolom untuk layar lebar */
+@media (min-width: 992px) {
+    .contact-wrapper {
+        grid-template-columns: 1.5fr 1fr; /* Kolom info lebih lebar */
+        gap: 3rem;
+        padding: 3rem;
+    }
+}
+
+.contact-info h3 {
+    margin-bottom: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.contact-item i {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  margin-right: 1.5rem;
+  margin-top: 5px;
+  width: 20px;
+  text-align: center;
+}
+
+.contact-item p {
+  margin-bottom: 0.25rem;
+  line-height: 1.6;
+}
+
+.contact-item strong {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+}
+
+.contact-context {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.contact-action {
+    text-align: center;
+}
+
+/* --- Style untuk Gambar di Halaman Kontak --- */
+
+.contact-image-frame {
+  aspect-ratio: 4 / 3; /* PAKSA BENTUK JADI PERSEGI PANJANG 4:3 */
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+  margin-bottom: 2rem; /* Jarak ke teks di bawahnya */
+}
+
+.contact-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Gambar akan mengisi frame tanpa gepeng */
+}
+
+/* --- Lapisan Tekstur Universal --- */
+
+/* Beri posisi relatif agar lapisan virtual bisa menempel */
+section, .footer {
+  position: relative;
+}
+
+/* Membuat lapisan virtual di atas background tapi di bawah konten */
+section::before, .footer::before {
+  content: ''; /* Wajib ada untuk pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Ambil gambar tekstur Anda */
+  background-image: url('images/beige-paper.png');
+  /* Atur intensitas tekstur di sini (nilai kecil agar halus) */
+  opacity: 0.8; 
+  
+  /* Pastikan lapisan ini tidak menutupi konten */
+  z-index: 0;
+}
+
+/* Memastikan konten (teks, tombol, dll) tetap berada di atas lapisan tekstur */
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Style untuk Pemisah Seksi Bergelombang --- */
+.wave-divider {
+  position: relative;
+  background: var(--bg-accent); /* Warna background seksi */
+}
+
+.wave-divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 100%; /* Posisikan di atas seksi */
+  width: 100%;
+  height: 80px; /* Tinggi gelombang */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' style='fill:%23f4f8e9;'%3E%3C/path%3E%3C/svg%3E");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* --- Style untuk Preloader --- */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: var(--bg-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--accent-color-2);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- Style untuk Toggle Mode Gelap/Terang (Model Saklar) --- */
+/* --- Style untuk Toggle Mode Gelap/Terang di Header --- */
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme-status-text {
+    font-size: 0.8rem; /* <-- Ukuran dikecilkan */
+    font-weight: 600;
+    color: var(--text-dark);
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+/* Kotak saklar */
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+/* Sembunyikan checkbox HTML asli */
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Latar belakang saklar */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+/* Tombol bulat di dalam saklar */
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+}
+
+/* Styling saat mode gelap aktif */
+input:checked + .slider {
+    background-color: var(--secondary-color); /* Warna hijau saat aktif */
+}
+
+input:checked + .slider::before {
+    transform: translateX(25px); /* Menggeser tombol bulat */
+}
+
+.slider.round {
+    border-radius: 25px;
+}
+
+.slider.round::before {
+    border-radius: 50%;
+}
+
+/* Sembunyikan teks di layar mobile agar tidak penuh */
+@media (max-width: 768px) {
+    .theme-status-text {
+        display: none;
+    }
+    nav {
+        gap: 0.5rem;
+    }
+}
+
+/* --- Style untuk Tombol Load More & Item Tersembunyi --- */
+.gallery-item-hidden {
+    display: none;
+}
+
+.load-more-container {
+    text-align: center;
+    margin-top: 2rem;
+}
