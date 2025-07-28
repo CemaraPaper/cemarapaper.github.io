@@ -1038,3 +1038,43 @@ body[data-theme='dark'] .contact-context {
     color: var(--text-dark);
     opacity: 0.8;
 }
+
+/* --- Style untuk Seksi Logo Klien --- */
+
+.client-logos {
+    display: flex;
+    flex-wrap: wrap; /* Agar logo turun baris di layar kecil */
+    justify-content: center; /* Posisi di tengah */
+    align-items: center;
+    gap: 3rem; /* Jarak antar logo */
+    margin-top: 3rem;
+}
+
+.client-logos img {
+    height: 60px; /* Atur tinggi maksimal logo agar seragam */
+    max-width: 150px; /* Atur lebar maksimal */
+    object-fit: contain;
+    
+}
+
+.client-logos img:hover {
+    /* Kembalikan ke warna asli saat di-hover */
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* --- Style untuk Seksi Latar Biru --- */
+
+.bg-primary-section {
+  background-color: var(--primary-color); /* Mengambil warna biru utama */
+}
+
+/* Mengubah warna judul di dalam seksi ini menjadi putih */
+.bg-primary-section .section-title {
+  color: white;
+}
+
+/* Mengubah warna garis bawah judul menjadi hijau agar kontras */
+.bg-primary-section .section-title::after {
+  background: var(--secondary-color);
+}
