@@ -1134,10 +1134,3 @@ body[data-theme='dark'] .contact-context {
     background-color: #3498db; /* Biru */
     color: white;
 }
-
-/* Sembunyikan tombol di mobile agar tidak penuh */
-@media (max-width: 768px) {
-    .language-switcher {
-        display: none;
-    }
-}
