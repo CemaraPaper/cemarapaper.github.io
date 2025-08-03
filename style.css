@@ -1135,9 +1135,74 @@ body[data-theme='dark'] .contact-context {
     color: white;
 }
 
-/* Sembunyikan tombol di mobile agar tidak penuh */
+/* --- Style untuk Tombol Ganti Bahasa (Desktop & Mobile) --- */
+
+/* Style dasar untuk pembungkus tombol */
+.language-switcher {
+  display: flex;
+  background-color: var(--bg-light);
+  border: 1px solid var(--accent-color-2);
+  border-radius: 50px;
+  padding: 4px;
+  transition: background-color 0.3s ease;
+}
+
+/* Style dasar untuk tombol ID/EN */
+.lang-btn {
+  border: none;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 50px;
+  background-color: transparent;
+  color: var(--text-dark);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.lang-btn.active {
+  opacity: 1;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.lang-btn[data-lang="id"].active {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.lang-btn[data-lang="en"].active {
+  background-color: #3498db;
+  color: white;
+}
+
+
+/* --- Aturan Tampilan Desktop & Mobile --- */
+
+/* Sembunyikan tombol versi mobile di layar lebar */
+.language-switcher-mobile {
+    display: none;
+}
+
+/* Aturan untuk layar mobile (768px ke bawah) */
 @media (max-width: 768px) {
-    .language-switcher {
+    /* Sembunyikan tombol versi desktop */
+    .language-switcher-desktop {
         display: none;
+    }
+
+    /* Tampilkan tombol versi mobile */
+    .language-switcher-mobile {
+        display: block;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--accent-color-2);
+    }
+    
+    /* Pusatkan tombol di dalam menu mobile */
+    .language-switcher-mobile .language-switcher {
+        justify-content: center;
+        margin: 0 auto;
+        width: fit-content;
     }
 }

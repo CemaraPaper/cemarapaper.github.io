@@ -297,3 +297,37 @@ document.addEventListener('DOMContentLoaded', async () => {
     const savedLang = localStorage.getItem('language') || 'id'; // Default ke Bahasa Indonesia
     changeLanguage(savedLang);
 });
+
+// --- Kode Final untuk Menu Mobile (Lebih Fleksibel) ---
+
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    // 1. Logika untuk membuka/menutup dengan tombol garis tiga
+    menuToggle.addEventListener('click', function () {
+        navMenu.classList.toggle('active');
+    });
+
+    // 2. Logika untuk menutup menu saat salah satu link diklik
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+    });
+
+    // 3. Logika BARU: Menutup menu saat klik di luar area menu
+    document.addEventListener('click', function(event) {
+        // Cek apakah menu sedang terbuka, dan apakah yang diklik BUKAN bagian dari menu
+        // atau BUKAN tombol toggle itu sendiri.
+        const isClickInsideMenu = navMenu.contains(event.target);
+        const isClickOnToggle = menuToggle.contains(event.target);
+
+        if (navMenu.classList.contains('active') && !isClickInsideMenu && !isClickOnToggle) {
+            navMenu.classList.remove('active');
+        }
+    });
+});
