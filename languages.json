@@ -113,8 +113,16 @@
     "contact_social_title": "Ikuti Perjalanan Kami",
     "contact_cta_title": "Pesan Langsung via WhatsApp",
     "contact_cta_text": "Klik tombol di bawah untuk memulai percakapan dengan tim kami. Kami siap membantu!",
-    "btn_mulai_chat": "Mulai Chat Sekarang"
-    
+    "btn_mulai_chat": "Mulai Chat Sekarang",
+    "faq_title": "Pertanyaan Umum (FAQ)",
+    "faq1_q_rev": "Apakah kertas daur ulang Cemara Paper bisa dicetak (di-print)?",
+    "faq1_a_rev": "Tentu bisa! Kertas kami bisa dicetak menggunakan printer inkjet standar. Untuk hasil terbaik, kami menyarankan untuk mencetak satu per satu (bukan dalam tumpukan) karena teksturnya yang unik. Kami juga menyediakan Jasa Cetak Eco-Friendly untuk kebutuhan seperti kartu nama, undangan, sertifikat, dan lainnya jika Anda ingin hasil yang lebih profesional.",
+    "faq2_q_rev": "Apakah bisa mengundang Cemara Paper untuk workshop, seminar, atau menjadi pembicara?",
+    "faq2_a_rev": "Sangat bisa. Tim kami berpengalaman dalam mengadakan workshop, mengisi materi dalam seminar, atau menjadi narasumber untuk acara yang berkaitan dengan lingkungan, daur ulang, dan kewirausahaan sosial. Untuk undangan di luar Bandung, akan ada penyesuaian biaya untuk akomodasi dan transportasi tim. Silakan hubungi kami melalui WhatsApp untuk mendiskusikan detail acara dan penawaran khusus untuk Anda.",    
+    "faq3_q_rev": "Bisakah saya memesan produk dengan desain custom dari saya sendiri?",
+    "faq3_a_rev": "Tentu saja. Kami melayani pesanan custom di mana desain sepenuhnya datang dari Anda. Ini sangat ideal untuk undangan pernikahan, souvenir acara, atau kemasan produk yang ingin menonjolkan identitas brand Anda. Kirimkan konsep Anda kepada kami, dan kita bisa wujudkan bersama.",
+    "faq4_q_rev": "Apakah Cemara Paper terbuka untuk kolaborasi penelitian, tugas kuliah, atau liputan media?",
+    "faq4_a_rev": "Kami sangat terbuka dan senang bisa menjadi bagian dari proyek pendidikan, penelitian, maupun liputan media. Kami percaya berbagi pengetahuan tentang daur ulang dan social enterprise adalah bagian dari misi kami. Silakan kirimkan proposal atau detail permintaan Anda melalui email ke cemarapaper08@gmail.com, lalu konfirmasi melalui WhatsApp agar bisa segera kami tindak lanjuti."    
   },
   "en": {
     "page_title": "Cemara Paper: Every Sheet, Has a Story",
@@ -230,6 +238,15 @@
     "contact_social_title": "Follow Our Journey",
     "contact_cta_title": "Order Directly via WhatsApp",
     "contact_cta_text": "Click the button below to start a conversation with our team. We're ready to help!",
-    "btn_mulai_chat": "Start Chat Now"
+    "btn_mulai_chat": "Start Chat Now",
+    "faq_title": "Frequently Asked Questions (FAQ)",
+    "faq1_q_rev": "Can Cemara Paper's recycled paper be printed on?",
+    "faq1_a_rev": "Yes, of course! Our paper can be printed on using a standard inkjet printer. for the best results, we recommend printing one sheet at a time (not in a stack) due to its unique texture. We also provide Eco-Friendly Printing Services for needs like business cards, invitations, and certificates if you want a more professional finish.",
+    "faq2_q_rev": "Can we invite Cemara Paper for a workshop, seminar, or as a speaker?",
+    "faq2_a_rev": "Absolutely. Our team is experienced in conducting workshops, presenting material in seminars, or acting as a resource person for events related to the environment, recycling, and social entrepreneurship. For invitations outside of Bandung, there will be cost adjustments for team accommodation and transportation. Please contact us via WhatsApp to discuss the event details and a special offer for you.",    
+    "faq3_q_rev": "Can I order a product with my own custom design?",
+    "faq3_a_rev": "Of course. We accept custom orders where the design comes entirely from you. This is ideal for wedding invitations, event souvenirs, or product packaging that aims to highlight your brand identity. Send us your concept, and we can bring it to life together.",
+    "faq4_q_rev": "Is Cemara Paper open to collaborations for research, university assignments, or media coverage?",
+    "faq4_a_rev": "We are very open and happy to be part of educational projects, research, or media features. We believe sharing knowledge about recycling and social enterprise is part of our mission. Please send your proposal or request details via email to cemarapaper08@gmail.com, then confirm via WhatsApp for a faster response."
   }
 }

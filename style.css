@@ -447,54 +447,134 @@ input:checked + .slider::before { transform: translateX(25px); }
 .slider.round::before { border-radius: 50%; }
 
 
-/* Aturan untuk Mobile: membuat semuanya kembali ke tengah */
+
+/* =============================================================== */
+/* --- SEMUA KODE UNTUK TAMPILAN MOBILE (DI BAWAH 768px) --- */
+/* =============================================================== */
 @media (max-width: 768px) {
+
+/* =============================================================== */
+/* --- STYLE BARU: MENU DROPDOWN PANEL DI POJOK KANAN ATAS --- */
+/* =============================================================== */
+
+.nav-links {
+    /* Posisi & Ukuran Baru */
+    position: fixed; /* Tetap fixed agar tidak ikut scroll */
+    top: 85px;       /* Jarak dari atas (sesuaikan jika perlu) */
+    right: 20px;     /* Jarak dari kanan */
+    width: 280px;    /* Lebar panel menu */
+    height: auto;    /* TINGGI OTOMATIS, tidak lagi penuh */
+    
+    /* Tampilan & Efek */
+    background: var(--bg-light);
+    border-radius: var(--border-radius); /* Menggunakan variabel radius Anda */
+    box-shadow: var(--shadow-strong);   /* Menggunakan variabel bayangan Anda */
+    padding: 1rem;
+    
+    /* Tata letak link di dalamnya */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Jarak antar link */
+    
+    /* Properti untuk Animasi (Fade + Scale) */
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+    transform-origin: top right;
+    visibility: hidden;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s 0.25s;
+}
+
+/* Aturan saat menu aktif (terbuka) */
+.nav-links.active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    visibility: visible;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Penyesuaian untuk link agar lebih rapi di dalam panel */
+.nav-links li {
+    width: 100%; /* Membuat setiap item list memenuhi lebar panel */
+}
+
+.nav-links a {
+    display: block; /* Membuat seluruh area bisa di-klik */
+    width: 100%;
+    color: var(--text-dark);
+    font-family: var(--font-heading);
+    font-size: 1rem; /* Ukuran font normal untuk panel kecil */
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    border-radius: 8px; /* Radius untuk highlight */
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Sedikit efek hover pada link */
+.nav-links a:hover {
+    background-color: var(--bg-accent);
+}
+
+/* Indikator halaman aktif */
+.nav-links a.active-page {
+    background-color: var(--accent-color-2);
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+    /* --- STYLE UNTUK TOMBOL MENU (HAMBURGER) --- */
+    .menu-toggle {
+        display: block; /* Tampilkan tombol di mobile */
+        position: relative;
+        width: 32px;
+        height: 24px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1100; /* Pastikan di atas menu navigasi */
+    }
+
+    /* Sembunyikan ikon Font Awesome (sudah tidak dipakai) */
+    .menu-toggle i {
+        display: none;
+    }
+
+    /* Garis-garis pada tombol hamburger */
+    .menu-toggle .bar {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        background-color: var(--primary-color);
+        border-radius: 4px;
+        transition: all 0.35s ease-in-out;
+    }
+
+    /* Posisi awal garis-garis */
+    .menu-toggle .bar:nth-child(1) { top: 0; }
+    .menu-toggle .bar:nth-child(2) { top: 50%; transform: translateY(-50%); }
+    .menu-toggle .bar:nth-child(3) { bottom: 0; }
+
+    /* Animasi tombol menjadi 'X' saat menu aktif */
+    .menu-toggle.active .bar:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.active .bar:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+
+    /* --- LAYOUT & ELEMEN LAIN DI MOBILE --- */
     .footer .container {
         flex-direction: column;
         gap: 1.5rem;
     }
+    .footer-center { order: 1; }
+    .footer-left { order: 2; }
+    .footer-right { display: none; }
 
-    .footer-center {
-        order: 1; /* Konten tengah jadi paling atas */
-    }
-    .footer-left {
-        order: 2; /* Toggle jadi di bawahnya */
-    }
-    .footer-right {
-        display: none; /* Sembunyikan kolom kanan di mobile */
-    }
-}
-
-/* --- Media Queries (Responsif untuk Mobile) --- */
-@media (max-width: 768px) {
-    .nav-links {
+    /* Sembunyikan elemen navbar kanan (sudah diganti menu) */
+    .navbar-right {
         display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--bg-light);
-        box-shadow: var(--shadow-strong);
-        padding: 1rem 0;
     }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        text-align: center;
-        padding: 1rem 0;
-    }
-
-    .menu-toggle {
-        display: block;
-        font-size: 1.8rem;
-        cursor: pointer;
-        background: none;
-        border: none;
-        color: var(--primary-color);
+    .language-switcher {
+        display: none;
     }
 }
 /* Tambahkan ini di css/style.css */
@@ -998,15 +1078,7 @@ input:checked + .slider::before {
     border-radius: 50%;
 }
 
-/* Sembunyikan teks di layar mobile agar tidak penuh */
-@media (max-width: 768px) {
-    .theme-status-text {
-        display: none;
-    }
-    nav {
-        gap: 0.5rem;
-    }
-}
+
 
 /* --- Style untuk Tombol Load More & Item Tersembunyi --- */
 .gallery-item-hidden {
@@ -1133,4 +1205,54 @@ body[data-theme='dark'] .contact-context {
 .lang-btn[data-lang="en"].active {
     background-color: #3498db; /* Biru */
     color: white;
+}
+
+/* --- Style untuk FAQ Section --- */
+.faq-container {
+    max-width: 800px;
+    margin: 2rem auto 0 auto;
+    border-top: 2px solid var(--accent-color-2);
+}
+
+.faq-item {
+    border-bottom: 2px solid var(--accent-color-2);
+}
+
+.faq-question {
+    padding: 1.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.faq-question i {
+    transition: transform 0.3s ease-out;
+    color: var(--secondary-color);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.3s ease-out;
+}
+
+.faq-answer p {
+    padding: 0 1rem 0 1rem;
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+/* Style saat FAQ aktif/terbuka */
+.faq-item.active .faq-answer {
+    max-height: 300px; /* Atur tinggi maksimal yang cukup untuk jawaban */
+    padding-bottom: 1.5rem;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
 }

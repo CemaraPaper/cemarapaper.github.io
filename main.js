@@ -1,15 +1,55 @@
 // js/main.js - VERSI FINAL
 
+// SALIN DAN TEMPEL SEMUA KODE DI BLOK INI SEBAGAI PENGGANTI ========
 document.addEventListener('DOMContentLoaded', function () {
+    
+    // --- KODE TERPUSAT UNTUK NAVIGASI MOBILE ---
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function () {
-            navLinks.classList.toggle('active');
+    if (menuToggle && navLinks) {
+        
+        // Fungsi terpusat untuk MENUTUP menu
+        const closeMenu = () => {
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active'); // Pastikan tombol kembali ke bentuk garis 3
+            menuToggle.setAttribute('aria-expanded', 'false');
+        };
+
+        // Event listener untuk tombol hamburger
+        menuToggle.addEventListener('click', function (event) {
+            event.stopPropagation(); // Mencegah event "klik di luar" aktif saat klik tombol
+            const isActive = navLinks.classList.contains('active');
+            if (isActive) {
+                closeMenu();
+            } else {
+                navLinks.classList.add('active');
+                menuToggle.classList.add('active');
+                menuToggle.setAttribute('aria-expanded', 'true');
+            }
+        });
+
+        // Event listener untuk MENUTUP menu saat klik di luar area
+        document.addEventListener('click', function (event) {
+            const isClickInsideNav = navLinks.contains(event.target);
+            if (navLinks.classList.contains('active') && !isClickInsideNav) {
+                closeMenu();
+            }
+        });
+
+        // Event listener untuk menutup menu dengan tombol 'Escape'
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && navLinks.classList.contains('active')) {
+                closeMenu();
+            }
         });
     }
+
+    // Kode lainnya seperti "Load More" dan ganti bahasa bisa diletakkan di sini jika perlu
+    // Namun, kode Anda saat ini sudah benar karena mereka punya `DOMContentLoaded` sendiri.
+    
 });
+// ===================================================================
 
 // --- Kode untuk Animasi Fade-in on Scroll ---
 
@@ -296,4 +336,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 4. Cek bahasa tersimpan saat halaman dimuat
     const savedLang = localStorage.getItem('language') || 'id'; // Default ke Bahasa Indonesia
     changeLanguage(savedLang);
+});
+
+// --- Kode untuk FAQ Accordion ---
+document.addEventListener('DOMContentLoaded', function() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            // Toggle class 'active' pada parent-nya (.faq-item)
+            this.parentElement.classList.toggle('active');
+        });
+    });
 });
