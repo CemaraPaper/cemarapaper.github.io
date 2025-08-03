@@ -1099,6 +1099,7 @@ body[data-theme='dark'] .contact-context {
 .bg-primary-section .section-title::after {
   background: var(--secondary-color);
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 
 /* --- Style untuk Tombol Ganti Bahasa --- */
@@ -1238,6 +1239,8 @@ body[data-theme='dark'] .contact-context {
         margin: 0 auto;
         width: fit-content;
     }
+=======
+>>>>>>> parent of c63a41c (Penambahan fitur ganti bahasa ke bahasa inggris)
 =======
 >>>>>>> parent of c63a41c (Penambahan fitur ganti bahasa ke bahasa inggris)
 }

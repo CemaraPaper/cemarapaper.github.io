@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+<<<<<<< HEAD
 
 
     // --- KODE GANTI BAHASA ---
@@ -238,6 +239,8 @@ document.addEventListener('DOMContentLoaded', function() {
             this.parentElement.style.display = 'none';
         });
     }
+=======
+>>>>>>> parent of c63a41c (Penambahan fitur ganti bahasa ke bahasa inggris)
 =======
 >>>>>>> parent of c63a41c (Penambahan fitur ganti bahasa ke bahasa inggris)
 });
