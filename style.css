@@ -1078,3 +1078,66 @@ body[data-theme='dark'] .contact-context {
 .bg-primary-section .section-title::after {
   background: var(--secondary-color);
 }
+
+/* --- Style untuk Tombol Ganti Bahasa --- */
+.language-switcher {
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  overflow: hidden;
+  margin-left: 1rem; /* Jarak dari toggle dark mode */
+}
+
+/* --- Style untuk Tombol Ganti Bahasa di Header (VERSI FINAL) --- */
+
+/* Pembungkus untuk semua item di kanan header */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Jarak antara menu dan tombol bahasa */
+}
+
+.language-switcher {
+  display: flex;
+  background-color: var(--bg-light); /* <-- GUNAKAN VARIABEL INI */
+  border: 1px solid var(--accent-color-2); /* <-- GUNAKAN VARIABEL INI */
+  border-radius: 50px;
+  padding: 4px;
+  transition: background-color 0.3s ease; /* Tambahan transisi halus */
+}
+
+.lang-btn {
+    border: none;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 50px;
+    background-color: transparent; /* Default transparan */
+    color: var(--text-dark);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.lang-btn.active {
+    opacity: 1;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Warna Bendera */
+.lang-btn[data-lang="id"].active {
+    background-color: #e74c3c; /* Merah */
+    color: white;
+}
+
+.lang-btn[data-lang="en"].active {
+    background-color: #3498db; /* Biru */
+    color: white;
+}
+
+/* Sembunyikan tombol di mobile agar tidak penuh */
+@media (max-width: 768px) {
+    .language-switcher {
+        display: none;
+    }
+}

@@ -166,7 +166,7 @@ themeCheckbox.addEventListener('change', function() {
     }
 });
 
-// --- Kode untuk Tombol "Load More" di Galeri ---
+// --- Kode untuk Tombol "Load More" di Galeri (VERSI TAHAN ERROR) ---
 
 document.addEventListener('DOMContentLoaded', function() {
     // Tentukan berapa item yang ditampilkan per klik
@@ -178,23 +178,26 @@ document.addEventListener('DOMContentLoaded', function() {
     galleries.forEach(gallery => {
         const grid = gallery.querySelector('.gallery-page-grid');
         const loadMoreBtn = gallery.querySelector('.load-more-btn');
-        const items = grid.querySelectorAll('.gallery-frame');
+        // PASTIKAN GRID ADA
+        if (!grid) return; 
 
-        // Jika tidak ada tombol atau jumlah item sedikit, abaikan
+        const items = Array.from(grid.querySelectorAll('.gallery-frame'));
+
+        // Jika tidak ada tombol atau jumlah item sedikit, sembunyikan tombol (JIKA ADA) dan hentikan
         if (!loadMoreBtn || items.length <= itemsPerLoad) {
-            if(loadMoreBtn) loadMoreBtn.style.display = 'none';
+            if (loadMoreBtn) loadMoreBtn.style.display = 'none';
             return;
         }
 
         // Sembunyikan item yang berlebih saat halaman dimuat
-        for (let i = itemsPerLoad; i < items.length; i++) {
-            items[i].classList.add('gallery-item-hidden');
-        }
+        items.slice(itemsPerLoad).forEach(item => {
+            item.classList.add('gallery-item-hidden');
+        });
 
         // Tambahkan event listener untuk tombol
         loadMoreBtn.addEventListener('click', function() {
-            const hiddenItems = grid.querySelectorAll('.gallery-item-hidden');
-            let itemsToShow = Array.from(hiddenItems).slice(0, itemsPerLoad);
+            const hiddenItems = Array.from(grid.querySelectorAll('.gallery-item-hidden'));
+            let itemsToShow = hiddenItems.slice(0, itemsPerLoad);
 
             itemsToShow.forEach(item => {
                 item.classList.remove('gallery-item-hidden');
@@ -244,4 +247,53 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+});
+
+// --- Kode untuk Ganti Bahasa ---
+
+document.addEventListener('DOMContentLoaded', async () => {
+    // 1. Muat file JSON
+    const response = await fetch('languages.json');
+    const languageData = await response.json();
+
+    const languageSwitcher = document.querySelector('.language-switcher');
+    const langButtons = document.querySelectorAll('.lang-btn');
+    const themeStatusText = document.getElementById('theme-status-text');
+
+    // 2. Fungsi untuk mengubah bahasa
+    const changeLanguage = (lang) => {
+        // Simpan pilihan bahasa
+        localStorage.setItem('language', lang);
+
+        // Ubah semua teks yang punya data-lang-key
+        document.querySelectorAll('[data-lang-key]').forEach(element => {
+            const key = element.dataset.langKey;
+            element.textContent = languageData[lang][key];
+        });
+
+        // Update teks dark/light mode
+        if (themeStatusText) {
+          const currentTheme = localStorage.getItem('theme') || 'light';
+          themeStatusText.textContent = languageData[lang][currentTheme === 'dark' ? 'dark_mode_text' : 'light_mode_text'];
+        }
+
+        // Update tombol aktif
+        langButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.lang === lang) {
+                btn.classList.add('active');
+            }
+        });
+    };
+
+    // 3. Tambahkan event listener ke tombol
+    langButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            changeLanguage(event.target.dataset.lang);
+        });
+    });
+
+    // 4. Cek bahasa tersimpan saat halaman dimuat
+    const savedLang = localStorage.getItem('language') || 'id'; // Default ke Bahasa Indonesia
+    changeLanguage(savedLang);
 });
