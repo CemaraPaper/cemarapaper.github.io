@@ -139,11 +139,7 @@ img {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary-color);
+    gap: 12px; /* Jarak antara logo dan tulisan */
 }
 
 .logo img {
@@ -172,7 +168,7 @@ img {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 0.5rem; /* Jarak antar menu item di desktop */
+    gap: 2rem;
 }
 
 /* --- Style Baru untuk Link Navigasi --- */
@@ -450,15 +446,48 @@ input:checked + .slider::before { transform: translateX(25px); }
 .slider.round { border-radius: 25px; }
 .slider.round::before { border-radius: 50%; }
 
-/* =========================================================================
-   RESPONSIVE (TAMPILAN MOBILE)
-   ========================================================================= */
 
+/* Aturan untuk Mobile: membuat semuanya kembali ke tengah */
 @media (max-width: 768px) {
-    /* --- Navigasi & Header --- */
-    .navbar-right { 
-        display: none; 
+    .footer .container {
+        flex-direction: column;
+        gap: 1.5rem;
     }
+
+    .footer-center {
+        order: 1; /* Konten tengah jadi paling atas */
+    }
+    .footer-left {
+        order: 2; /* Toggle jadi di bawahnya */
+    }
+    .footer-right {
+        display: none; /* Sembunyikan kolom kanan di mobile */
+    }
+}
+
+/* --- Media Queries (Responsif untuk Mobile) --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-light);
+        box-shadow: var(--shadow-strong);
+        padding: 1rem 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 1rem 0;
+    }
+
     .menu-toggle {
         display: block;
         font-size: 1.8rem;
@@ -466,56 +495,6 @@ input:checked + .slider::before { transform: translateX(25px); }
         background: none;
         border: none;
         color: var(--primary-color);
-        z-index: 10000;
-    }
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 70%;
-        max-width: 300px;
-        height: 100vh;
-        background: var(--bg-light);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1.5rem;
-        box-shadow: -5px 0px 15px rgba(0,0,0,0.1);
-        z-index: 1001;
-    }
-    .nav-links.active {
-        display: flex;
-    }
-
-    /* --- Tombol Bahasa di Mobile --- */
-    .language-switcher-mobile {
-        display: block;
-        margin-top: 1.5rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid var(--accent-color-2);
-        width: 80%;
-        text-align: center;
-    }
-    .language-switcher-mobile .language-switcher {
-        justify-content: center;
-        margin: 0 auto;
-        width: fit-content;
-    }
-
-    /* --- Footer --- */
-    .footer .container {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    .footer-center {
-        order: 1;
-    }
-    .footer-left {
-        order: 2;
-    }
-    .footer-right {
-        display: none;
     }
 }
 /* Tambahkan ini di css/style.css */
@@ -1098,8 +1077,6 @@ body[data-theme='dark'] .contact-context {
 /* Mengubah warna garis bawah judul menjadi hijau agar kontras */
 .bg-primary-section .section-title::after {
   background: var(--secondary-color);
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
 
 /* --- Style untuk Tombol Ganti Bahasa --- */
@@ -1158,89 +1135,9 @@ body[data-theme='dark'] .contact-context {
     color: white;
 }
 
-/* --- Style untuk Tombol Ganti Bahasa (Desktop & Mobile) --- */
-
-/* --- Style untuk Tombol Ganti Bahasa --- */
-.language-switcher {
-  display: flex;
-  background-color: var(--bg-light);
-  border: 1px solid var(--accent-color-2);
-  border-radius: 50px;
-  padding: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.lang-btn {
-  border: none; padding: 6px 14px; cursor: pointer;
-  font-size: 0.8rem; font-weight: 700; border-radius: 50px;
-  background-color: transparent; color: var(--text-dark);
-  opacity: 0.6; transition: all 0.3s ease;
-}
-.lang-btn.active { opacity: 1; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); }
-.lang-btn[data-lang="id"].active { background-color: #e74c3c; color: white; }
-.lang-btn[data-lang="en"].active { background-color: #3498db; color: white; }
-
-
-/* --- Aturan Tampilan Mobile (DI BAWAH 768px)--- */
-
-.language-switcher-mobile { display: none; }
-
+/* Sembunyikan tombol di mobile agar tidak penuh */
 @media (max-width: 768px) {
-    /* Sembunyikan navigasi versi desktop */
-    .navbar-right {
+    .language-switcher {
         display: none;
     }
-    
-    /* Tampilkan tombol garis tiga */
-    .menu-toggle {
-        display: block;
-        font-size: 1.8rem;
-        cursor: pointer;
-        background: none;
-        border: none;
-        color: var(--primary-color);
-        z-index: 10000; /* Pastikan tombol di atas segalanya */
-    }
-
-    /* Style untuk panel menu dropdown */
-    .nav-links {
-        display: none; /* Sembunyi by default */
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 70%;
-        max-width: 300px;
-        height: 100vh;
-        background: var(--bg-light);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1.5rem;
-        box-shadow: -5px 0px 15px rgba(0,0,0,0.1);
-        z-index: 1001;
-    }
-
-    /* Saat menu aktif (setelah tombol diklik) */
-    .nav-links.active {
-        display: flex;
-    }
-
-    /* Tampilkan tombol bahasa versi mobile di dalam menu */
-    .language-switcher-mobile {
-        display: block;
-        margin-top: 1.5rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid var(--accent-color-2);
-        width: 80%;
-        text-align: center;
-    }
-    .language-switcher-mobile .language-switcher {
-        justify-content: center;
-        margin: 0 auto;
-        width: fit-content;
-    }
-=======
->>>>>>> parent of c63a41c (Penambahan fitur ganti bahasa ke bahasa inggris)
-=======
->>>>>>> parent of c63a41c (Penambahan fitur ganti bahasa ke bahasa inggris)
 }
