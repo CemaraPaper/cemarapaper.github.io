@@ -1098,6 +1098,7 @@ body[data-theme='dark'] .contact-context {
 /* Mengubah warna garis bawah judul menjadi hijau agar kontras */
 .bg-primary-section .section-title::after {
   background: var(--secondary-color);
+<<<<<<< HEAD
 }
 
 /* --- Style untuk Tombol Ganti Bahasa --- */
@@ -1237,4 +1238,6 @@ body[data-theme='dark'] .contact-context {
         margin: 0 auto;
         width: fit-content;
     }
+=======
+>>>>>>> parent of c63a41c (Penambahan fitur ganti bahasa ke bahasa inggris)
 }

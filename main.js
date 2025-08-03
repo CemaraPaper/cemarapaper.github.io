@@ -13,6 +13,7 @@ if (preloader) {
 // --- BAGIAN 2: SEMUA FUNGSI LAINNYA SETELAH HALAMAN SIAP ---
 document.addEventListener('DOMContentLoaded', async function () {
 
+<<<<<<< HEAD
     // --- KODE MENU MOBILE ---
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-links');
@@ -30,6 +31,49 @@ document.addEventListener('DOMContentLoaded', async function () {
                 if (navMenu.classList.contains('active')) {
                     navMenu.classList.remove('active');
                 }
+=======
+
+themeCheckbox.addEventListener('change', function() {
+    if (this.checked) {
+        setTheme('dark');
+    } else {
+        setTheme('light');
+    }
+});
+
+// --- Kode untuk Tombol "Load More" di Galeri ---
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Tentukan berapa item yang ditampilkan per klik
+    const itemsPerLoad = 6;
+    
+    // Cari semua galeri yang ada di halaman
+    const galleries = document.querySelectorAll('.gallery-category');
+
+    galleries.forEach(gallery => {
+        const grid = gallery.querySelector('.gallery-page-grid');
+        const loadMoreBtn = gallery.querySelector('.load-more-btn');
+        const items = grid.querySelectorAll('.gallery-frame');
+
+        // Jika tidak ada tombol atau jumlah item sedikit, abaikan
+        if (!loadMoreBtn || items.length <= itemsPerLoad) {
+            if(loadMoreBtn) loadMoreBtn.style.display = 'none';
+            return;
+        }
+
+        // Sembunyikan item yang berlebih saat halaman dimuat
+        for (let i = itemsPerLoad; i < items.length; i++) {
+            items[i].classList.add('gallery-item-hidden');
+        }
+
+        // Tambahkan event listener untuk tombol
+        loadMoreBtn.addEventListener('click', function() {
+            const hiddenItems = grid.querySelectorAll('.gallery-item-hidden');
+            let itemsToShow = Array.from(hiddenItems).slice(0, itemsPerLoad);
+
+            itemsToShow.forEach(item => {
+                item.classList.remove('gallery-item-hidden');
+>>>>>>> parent of c63a41c (Penambahan fitur ganti bahasa ke bahasa inggris)
             });
         });
 
@@ -150,6 +194,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+<<<<<<< HEAD
 
     // Shadow Header saat Scroll
     const header = document.querySelector('.header');
@@ -193,4 +238,6 @@ document.addEventListener('DOMContentLoaded', async function () {
             this.parentElement.style.display = 'none';
         });
     }
+=======
+>>>>>>> parent of c63a41c (Penambahan fitur ganti bahasa ke bahasa inggris)
 });
