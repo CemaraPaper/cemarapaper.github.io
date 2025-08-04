@@ -349,3 +349,58 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+/* =============================================================== */
+/* --- KODE UNTUK ANIMASI COUNTER ANGKA --- */
+/* =============================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+    const statsContainer = document.querySelector(".stats-container");
+
+// GANTI LAGI FUNGSI LAMA DENGAN VERSI FINAL INI
+
+const animateCounters = () => {
+    const counters = document.querySelectorAll('.counter-number');
+    const duration = 1500; // Durasi animasi dalam milidetik
+
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const suffix = counter.getAttribute('data-suffix') || ''; // Ambil suffix, jika tidak ada, kosongkan
+        
+        let currentNumber = 0; 
+        const increment = target / (duration / 16); 
+
+        const timer = setInterval(() => {
+            currentNumber += increment;
+
+            if (currentNumber >= target) {
+                clearInterval(timer);
+                // Gabungkan angka final yang diformat dengan suffix
+                counter.innerText = target.toLocaleString('id-ID') + suffix;
+            } else {
+                // Tampilkan angka yang sedang berjalan dengan format
+                counter.innerText = Math.ceil(currentNumber).toLocaleString('id-ID');
+            }
+        }, 16);
+    });
+};
+
+    // Observer untuk mendeteksi kapan elemen terlihat di layar
+    if (statsContainer) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Jika elemen masuk ke viewport, jalankan animasi
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    // Berhenti mengamati setelah animasi dijalankan
+                    observer.unobserve(statsContainer);
+                }
+            });
+        }, {
+            threshold: 0.5 // Jalankan saat 50% elemen terlihat
+        });
+
+        // Mulai amati elemen .stats-container
+        observer.observe(statsContainer);
+    }
+});

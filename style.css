@@ -876,13 +876,34 @@ input:checked + .slider::before { transform: translateX(25px); }
   text-align: left;
 }
 
+/* =============================================================== */
+/* --- STYLE BARU UNTUK IKON KONTAK (UKURAN & WARNA ASLI) --- */
+/* =============================================================== */
+
+/* 1. Aturan Umum untuk Memperbesar Ikon */
 .contact-item i {
-  color: var(--secondary-color);
-  font-size: 1.2rem;
-  margin-right: 1.5rem;
-  margin-top: 5px;
-  width: 20px;
-  text-align: center;
+    font-size: 2.25rem; /* Ukuran diperbesar agar seimbang */
+    width: 35px;       /* Lebar disesuaikan untuk ikon yang lebih besar */
+    margin-right: 1.5rem;
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* 2. Aturan Warna Spesifik untuk Setiap Ikon */
+
+/* Warna untuk Ikon Peta Lokasi (Workshop) */
+.contact-item .fa-map-marker-alt {
+    color: #EA4335; /* Merah khas Google Maps */
+}
+
+/* Warna untuk Ikon Email */
+.contact-item .fa-envelope {
+    color: #4285F4; /* Biru khas Google/Gmail */
+}
+
+/* Warna untuk Ikon WhatsApp */
+.contact-item .fa-whatsapp {
+    color: #25D366; /* Hijau khas WhatsApp */
 }
 
 .contact-item p {
@@ -1255,4 +1276,104 @@ body[data-theme='dark'] .contact-context {
 
 .faq-item.active .faq-question i {
     transform: rotate(180deg);
+}
+
+/* =============================================================== */
+/* --- STYLE BARU UNTUK TATA LETAK STATISTIK 3x2 --- */
+/* =============================================================== */
+
+.stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem 1.5rem; /* 2rem jarak atas-bawah, 1.5rem jarak kiri-kanan */
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.stat-item {
+    /* Mencegah item membesar & memberi basis lebar 30% agar hanya 3 item muat per baris */
+    flex: 0 1 30%; 
+    
+    /* Beri lebar minimum agar tetap rapi di layar menengah */
+    min-width: 250px; 
+
+    padding: 1rem;
+}
+
+.stat-item .counter-number {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 8vw, 4.5rem); /* Ukuran font besar & responsif */
+    font-weight: 700;
+    color: var(--secondary-color); /* Warna hijau agar menonjol */
+    line-height: 1.1;
+}
+
+/* Menambahkan tanda '+' setelah angka selesai dihitung */
+.stat-item .counter-number.counted::after {
+    content: '+';
+}
+
+.stat-item p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin: 0.5rem 0 0 0;
+}
+
+/* =============================================================== */
+/* --- STYLE BARU UNTUK BAGIAN "IKUTI PERJALANAN KAMI" --- */
+/* =============================================================== */
+
+.social-links-detailed {
+    display: flex;
+    flex-direction: column; /* Menyusun item ke bawah */
+    gap: 0.75rem; /* Jarak antar item */
+    margin-top: 1rem;
+}
+
+.social-link-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Jarak antara ikon dan tulisan */
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border: 1px solid transparent; /* Garis batas transparan */
+}
+
+/* Efek hover untuk interaksi */
+.social-link-item:hover {
+    background-color: var(--bg-accent);
+    border-color: var(--accent-color-2);
+}
+
+.social-link-item i {
+    font-size: 2.25rem; /* Ukuran ikon diperbesar */
+    color: var(--primary-color); /* Warna biru utama */
+    width: 35px; /* Memberi lebar tetap agar tulisan rata */
+    text-align: center;
+}
+
+.social-link-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-link-item strong {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+.social-link-item span {
+    font-size: 0.9rem;
+    color: #6c757d; /* Warna abu-abu untuk username */
+}
+
+/* Penyesuaian warna username untuk dark mode */
+body[data-theme='dark'] .social-link-item span {
+    color: #adb5bd; 
 }

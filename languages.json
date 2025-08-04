@@ -102,7 +102,7 @@
     "contact_page_title": "Hubungi Kami - Cemara Paper",
     "contact_meta_description": "Hubungi Cemara Paper untuk pesanan, kolaborasi, atau pertanyaan. Temukan alamat workshop, email, dan kontak WhatsApp kami di sini.",
     "contact_title": "Terhubung dengan Kami",
-    "contact_intro": "Setiap ide hebat berawal dari sebuah sapaan. Jangan ragu untuk menghubungi kami—baik untuk proyek besar maupun sekadar bertanya. Tim kami siap membantu.",
+    "contact_intro": "Setiap ide hebat berawal dari sebuah sapaan. Jangan ragu untuk menghubungi kami baik untuk proyek besar maupun sekadar bertanya. Tim kami siap membantu.",
     "contact_box_title": "Kunjungi Kami atau Kirim Pesan",
     "contact_label_address": "Workshop & Galeri",
     "contact_context_address": "(Terbuka untuk kunjungan dengan janji temu)",
@@ -122,7 +122,13 @@
     "faq3_q_rev": "Bisakah saya memesan produk dengan desain custom dari saya sendiri?",
     "faq3_a_rev": "Tentu saja. Kami melayani pesanan custom di mana desain sepenuhnya datang dari Anda. Ini sangat ideal untuk undangan pernikahan, souvenir acara, atau kemasan produk yang ingin menonjolkan identitas brand Anda. Kirimkan konsep Anda kepada kami, dan kita bisa wujudkan bersama.",
     "faq4_q_rev": "Apakah Cemara Paper terbuka untuk kolaborasi penelitian, tugas kuliah, atau liputan media?",
-    "faq4_a_rev": "Kami sangat terbuka dan senang bisa menjadi bagian dari proyek pendidikan, penelitian, maupun liputan media. Kami percaya berbagi pengetahuan tentang daur ulang dan social enterprise adalah bagian dari misi kami. Silakan kirimkan proposal atau detail permintaan Anda melalui email ke cemarapaper08@gmail.com, lalu konfirmasi melalui WhatsApp agar bisa segera kami tindak lanjuti."    
+    "faq4_a_rev": "Kami sangat terbuka dan senang bisa menjadi bagian dari proyek pendidikan, penelitian, maupun liputan media. Kami percaya berbagi pengetahuan tentang daur ulang dan social enterprise adalah bagian dari misi kami. Silakan kirimkan proposal atau detail permintaan Anda melalui email ke cemarapaper08@gmail.com, lalu konfirmasi melalui WhatsApp agar bisa segera kami tindak lanjuti.",    
+    "stats_title": "Dampak yang Telah Kami Ciptakan",
+    "stats_item1_desc": "Workshop dan Seminar Telah Diadakan",
+    "stats_item2_desc": "Anggota Tim Berdaya",
+    "stats_item3_desc": "Mitra Komunitas & Klien",
+    "stats_item4_desc": "Lembar Kertas Didaur Ulang",
+    "stats_item5_desc": "Kertas Diolah & CO2e Dikurangi"
   },
   "en": {
     "page_title": "Cemara Paper: Every Sheet, Has a Story",
@@ -227,7 +233,7 @@
     "contact_page_title": "Contact Us - Cemara Paper",
     "contact_meta_description": "Contact Cemara Paper for orders, collaborations, or questions. Find our workshop address, email, and WhatsApp contact here.",
     "contact_title": "Connect with Us",
-    "contact_intro": "Every great idea starts with a hello. Don't hesitate to contact us—whether for a large project or just a simple question. Our team is ready to help.",
+    "contact_intro": "Every great idea starts with a hello. Don't hesitate to contact us whether for a large project or just a simple question. Our team is ready to help.",
     "contact_box_title": "Visit Us or Send a Message",
     "contact_label_address": "Workshop & Gallery",
     "contact_context_address": "(Open for visits by appointment)",
@@ -247,6 +253,16 @@
     "faq3_q_rev": "Can I order a product with my own custom design?",
     "faq3_a_rev": "Of course. We accept custom orders where the design comes entirely from you. This is ideal for wedding invitations, event souvenirs, or product packaging that aims to highlight your brand identity. Send us your concept, and we can bring it to life together.",
     "faq4_q_rev": "Is Cemara Paper open to collaborations for research, university assignments, or media coverage?",
-    "faq4_a_rev": "We are very open and happy to be part of educational projects, research, or media features. We believe sharing knowledge about recycling and social enterprise is part of our mission. Please send your proposal or request details via email to cemarapaper08@gmail.com, then confirm via WhatsApp for a faster response."
+    "faq4_a_rev": "We are very open and happy to be part of educational projects, research, or media features. We believe sharing knowledge about recycling and social enterprise is part of our mission. Please send your proposal or request details via email to cemarapaper08@gmail.com, then confirm via WhatsApp for a faster response.",
+    "stats_title": "The Impact We've Created",
+    "stats_item1_desc": "Workshops and Seminars Held",
+    "stats_item2_desc": "Empowered Team Members",
+    "stats_item3_desc": "Community Partners & Clients",
+    "stats_item4_desc": "Sheets of Paper Recycled",
+    "stats_item5_desc": "Paper Processed & CO2e Reduced"
+
+
+
+
   }
 }
