@@ -404,3 +404,4 @@ const animateCounters = () => {
         observer.observe(statsContainer);
     }
 });
+
